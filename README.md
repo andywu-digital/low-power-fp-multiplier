@@ -40,11 +40,19 @@ d0, is implicitly encoded in the biased exponent E. <br>
 ✅ RTL Simulation -- passed with no errors <br>
 ✅ Synthesis -- met 1.0 GHz timing & power goals <br>
 ✅ APR -- optimized placement & routing <br>
-✅ DRC/LVS -- no DRC error & LVS pass <br>
 ✅ Post-Layout Simulation -- max frequency 1.136 GHz <br>
+✅ DRC/LVS -- no DRC error & LVS pass <br>
 
 <p align="center">
 <img src="img/final_layout.png" alt="Final Layout" width="500"/>
+</p>
+
+<p align="center">
+<img src="drc/drc_report.png" alt="drc report" width="500"/>
+</p>
+
+<p align="center">
+<img src="lvs/lvs_report.png" alt="lvs report" width="500"/>
 </p>
 
 ## ⏩ 4) Results Summary
@@ -62,6 +70,8 @@ d0, is implicitly encoded in the biased exponent E. <br>
 ├─ rtl/                  # Verilog design source & testbench
 ├─ syn/                  # Synthesis constraints (.sdc) & reports
 ├─ apr/                  # APR timing reports
+├─ drc/                  # drc passing report
+├─ lvs/                  # lvs passing report
 └─ img/                  # Block diagrams, timing, waveforms
 ```
 ## ⏩ 6) References 
