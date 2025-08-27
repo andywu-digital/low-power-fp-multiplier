@@ -1,21 +1,30 @@
 # low-power-fp-multiplier
 
-🚀 **Rank 1/72 in Power Efficiency** -- This project implements a
-**low-power IEEE-754 double-precision floating-point multiplier**,
-designed in **TSMC 16nm** technology.\
-The design achieved **the lowest power consumption in class**, while
-completing the full **RTL-to-GDS chip design flow**.
+- 🚀 **Rank 1/72 in Power Efficiency** -- This design achieved **the lowest power consumption** in DIC course in CCU <br>
+- This project implements a **low-power IEEE-754 double-precision floating-point multiplier**, designed in **TSMC 16nm** technology.
+while completing the full **RTL-to-GDS chip design flow**.
 
-## 📌 Key Achievements
+### Key optimizations
+📌 `RTL-Level` &nbsp;: &nbsp; reduced bias operations, memory array storage,
+    using sequential multiplier IP → **~71% power↓** 🚀 <br>
+📌 `Synthesis-Level` &nbsp;: &nbsp; clock gating, power-weight constraints → **~58% power↓** 🚀 <br> 
 
--   **Process:** TSMC 16nm
--   **Core Area:** 2.982k μm²
--   **Power Consumption:** **0.5563 mW (Rank 1/72, lowest in DIC course)**
--   **Latency:** 58 cycles
--   **Max Frequency:** 1.136 GHz (post-layout)
+## ⏩ 1) Overview
+
+Representations of floating-point data in the binary
+interchange formats are uniquely encoded in k bits in the following three fields ordered as shown in Figure. <br>
+<br>
+<p align="center">
+`<img src="img/fp_format.png" alt="floating-point format" width="500"/>
+</p>
+a) 1-bit sign S <br>
+b) w-bit biased exponent E= e + bias <br>
+c) (t=p−1)-bit trailing significand field digit string T=d1 d2…dp−1; the leading bit of the significand,
+d0, is implicitly encoded in the biased exponent E. <br>
 
 
-## ⚙️ Hardware Architecture
+
+## ⏩ 2) Hardware Architecture
 
 -   **Sign Unit** -- XOR-based sign calculation
 -   **Exponent Unit** -- bias-optimized arithmetic
@@ -26,40 +35,39 @@ completing the full **RTL-to-GDS chip design flow**.
 `<img src="img/hd_arch.png" alt="Hardware Architecture" width="500"/>
 </p>
 
-## 🔧 Optimization Highlights
+## ⏩ 3) Implementation Flow
 
--   **RTL-Level:** reduced bias operations, memory array storage,
-    sequential multiplier IP\
--   **Synthesis-Level:** clock gating, power/power-weight constraints,
-    synthesis optimizations\
--   **Result:** Achieved **60%+ power reduction** compared to naive
-    design
-
-## 📐 RTL-to-GDS Flow
-
--   ✅ RTL Simulation -- passed with no errors
--   ✅ Synthesis -- met 1.0 GHz timing & power goals
--   ✅ APR -- optimized placement & routing
--   ✅ DRC/LVS -- clean signoff
--   ✅ Post-Layout Simulation -- max frequency 1.136 GHz
-
+✅ RTL Simulation -- passed with no errors <br>
+✅ Synthesis -- met 1.0 GHz timing & power goals <br>
+✅ APR -- optimized placement & routing <br>
+✅ DRC/LVS -- no DRC error & LVS pass <br>
+✅ Post-Layout Simulation -- max frequency 1.136 GHz <br>
 
 <p align="center">
 <img src="img/final_layout.png" alt="Final Layout" width="500"/>
 </p>
 
-## 📊 Final Power Result
+## ⏩ 4) Results Summary
 
-Final post-layout analysis: **0.5563 mW (lowest in DIC course, Rank 1/72)**
+| Metric                           | Result / Notes                                     |
+|----------------------------------|----------------------------------------------------|
+| Max Clock Frequency (post‑layout)| 1.136 GHz                                          |
+| Latency                          | 58 clock cycles                                    |
+| Core Area                        | 2.982k μm²                                         |
+| Power                            | **0.5563 mW** (lowest in DIC course)               |
 
-<p align="center">
-<img src="img/power_result.png" alt="Power Analysis Result" width="500"/>
-</p>
+## ⏩ 5) Repository Structure 
 
-## 💡 Reflection
+```
+├─ rtl/                  # Verilog design source & testbench
+├─ syn/                  # Synthesis constraints (.sdc) & reports
+├─ apr/                  # P&R setup, floorplan, reports
+└─ img/                  # Block diagrams, timing, waveforms
+```
+## ⏩ 6) References 
+[1] IEEE Standard for Floating-Point Arithmetic, IEEE Std 754-2019, Jul. 22, 2019.
 
-This project highlights the **trade-offs between latency and power**.\
+## ⏩ 7) Reflection 
+This project highlights the **trade-offs between latency and power**.
 By strategically increasing latency, I achieved **the lowest power
-design (Rank 1/72)** while still meeting the 1.0 GHz target -- proving
-the effectiveness of **RTL-level and synthesis-level optimizations** in
-modern ASIC design.
+design (Rank 1/72)** while still meeting the 1.0 GHz target.
