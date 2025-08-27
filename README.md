@@ -17,9 +17,9 @@ interchange formats are uniquely encoded in k bits in the following three fields
 <p align="center">
 <img src="img/fp_format.png" alt="floating-point format" width="500"/>
 </p>
-a) &nbsp;: &nbsp; 1-bit sign S <br>
-b) &nbsp;: &nbsp; w-bit biased exponent E= e + bias <br>
-c) &nbsp;: &nbsp; (t=p−1)-bit trailing significand field digit string T=d1 d2…dp−1; the leading bit of the significand,
+a) &nbsp; 1-bit sign S <br>
+b) &nbsp; w-bit biased exponent E= e + bias <br>
+c) &nbsp; (t=p−1)-bit trailing significand field digit string T=d1 d2…dp−1; the leading bit of the significand,
 d0, is implicitly encoded in the biased exponent E. <br>
 
 
