@@ -61,7 +61,7 @@ d0, is implicitly encoded in the biased exponent E. <br>
 ```
 ├─ rtl/                  # Verilog design source & testbench
 ├─ syn/                  # Synthesis constraints (.sdc) & reports
-├─ apr/                  # P&R setup, floorplan, reports
+├─ apr/                  # APR timing reports
 └─ img/                  # Block diagrams, timing, waveforms
 ```
 ## ⏩ 6) References 

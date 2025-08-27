@@ -1,0 +1,4 @@
+Cost Group   : 'CLK' (path_group 'CLK')
+Timing slack : 0ps
+Start-point  : start_reg/CP
+End-point    : C1_pp_reg[97]/D
