@@ -14,8 +14,8 @@ while completing the full **RTL-to-GDS chip design flow**.
 Representations of floating-point data in the binary
 interchange formats are uniquely encoded in k bits in the following three fields ordered as shown in Figure. <br>
 <br>
-<p align="center">
-`<img src="img/fp_format.png" alt="floating-point format" width="500"/>
+<p>
+<img src="img/fp_format.png" alt="floating-point format" width="500"/>
 </p>
 a) 1-bit sign S <br>
 b) w-bit biased exponent E= e + bias <br>
